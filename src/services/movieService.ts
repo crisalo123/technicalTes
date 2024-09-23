@@ -8,11 +8,12 @@ export interface PaginationResponse<T> {
 }
 
 export type DataMovie = {
-  id: number
-  title: string
-  overview: string
-  release_date: string
-  account_id: string
+  id?: number
+  title?: string
+  overview?: string
+  release_date?: string
+  account_id?: string
+  movie_id?: number
 }
 
 interface GetMovies {
@@ -23,8 +24,8 @@ interface GetMovies {
 }
 
 export const getMovieDetail = async (params: DataMovie): Promise<unknown> => {
-  const { account_id } = params
-  return await movieApi.get(`/account/${account_id}/favorite/movies`)
+  const { movie_id } = params
+  return await movieApi.get(`/movie/${movie_id}?language=en-US`)
 }
 
 export const getMovies = async (

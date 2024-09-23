@@ -46,6 +46,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
 
           {showPassword ? (
             <Button
+              type="button"
               className="absolute  !top-4 right-4 h-6"
               onClick={() => setShowPassword(false)}
             >
@@ -54,6 +55,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
             </Button>
           ) : (
             <Button
+              type="button"
               className="absolute bg-transparent !top-4 right-4 h-6"
               onClick={() => setShowPassword(true)}
             >
