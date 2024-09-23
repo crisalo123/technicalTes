@@ -1,0 +1,13 @@
+body {
+  background: linear-gradient(
+    135deg,
+    rgba(106, 90, 205, 0.7),
+    rgba(44, 62, 80, 0.7)
+  ); /* Gradiente con opacidad */
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  color: #ecf0f1; /* Color blanco suave para mejor contraste */
+  font-family: 'Poppins', sans-serif;
+}
