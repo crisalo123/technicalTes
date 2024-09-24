@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { LoginForm } from './component/LoginForm'
+import { getAuthSession } from '@/services/authServices'
 
 export interface AuthValues {
   username: string
@@ -8,9 +9,14 @@ export interface AuthValues {
 
 export const LoginPage = () => {
   const navigate = useNavigate()
-  const handleSuccess = (values: AuthValues): void => {
+  const handleSuccess = async (values: AuthValues): Promise<void> => {
     if (values.password !== '' && values.username !== '') {
-      navigate('/home')
+      try {
+        await getAuthSession()
+        navigate('/home')
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 
