@@ -56,6 +56,4 @@ export const getMoviesList = async (): Promise<unknown> => {
   }
 ```
 
-```Adicional a ello encontraran una lista donde esta el consumo de servicio por generos de pelicula, tambien podran realizar la paginacion y busqueda de la pelicula, adicional a ello podrarn ver el detalle de la pelicula seleccionada.
-
-```
+-- Adicionalmente, encontrarás una lista donde se muestra el consumo del servicio por géneros de película. También podrás realizar la paginación y búsqueda de películas, así como ver el detalle de la película seleccionada.
