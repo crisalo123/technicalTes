@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# prueba tecnica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Este proyecto es una aplicación desarrollada con React, TypeScript y Vite. Permite a los usuarios autenticarse y explorar una variedad de películas utilizando la API de The Movie Database (TMDb).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías Utilizadas
 
-## Expanding the ESLint configuration
+- **React**: Librería de JavaScript para construir interfaces de usuario.
+- **TypeScript**: Superset de JavaScript que permite el uso de tipos estáticos.
+- **Vite**: Herramienta de construcción rápida para aplicaciones web.
+- **Axios**: Cliente HTTP para realizar peticiones a la API. -**zod** : herramienta para validar campos especificos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instalación
 
-- Configure the top-level `parserOptions` property like this:
+Para clonar el repositorio, usa:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/crisalo123/technicalTes.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Pasos de Instalación
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+\*\*Ubicación en la carpeta: Después de clonar el repositorio, ubícate en la carpeta technical-test utilizando el comando:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+cd technical-test
+
+## Instalación de dependencias: Instala las dependencias necesarias con:
+
+pnpm install
+
+## Iniciar la aplicación: Para iniciar la aplicación en modo desarrollo, ejecuta:
+
+npm run dev
+
+## Estructura del proyecto: En la carpeta services, encontrarás los servicios utilizados para la ejecución del proyecto
+
+## Uso de la api Obtener Lista de Película
+
+```Typescript
+export const getMoviesList = async (): Promise<unknown> => {
+  return await movieApi.get(`genre/movie/list?language=en`)
+}
+```
+
+## Manejo de Datos
+
+```Typescript
+ const getDataMovie = async () => {
+    try {
+      const res = await getMoviesList()
+      setShowMovieList(res.genres)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+```
+
+```Adicional a ello encontraran una lista donde esta el consumo de servicio por generos de pelicula, tambien podran realizar la paginacion y busqueda de la pelicula, adicional a ello podrarn ver el detalle de la pelicula seleccionada.
+
 ```
